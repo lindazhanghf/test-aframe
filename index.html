@@ -12,11 +12,21 @@
         <a-mixin
           id="annotation"
           geometry="primitive: circle; radius: 0.04" material="color: black; side: double"
-          animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
-          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+         ></a-mixin>
+        <a-mixin
+          id="annotation-text"
+          visible="false"
+          geometry="primitive: circle; radius: 0.05" material="color: black; side: double"
+          animation__mouseenter="property: visible; to: true; startEvents: mouseenter; dur: 100"
+          animation__mouseleave="property: visible; to: false; startEvents: mouseleave; dur: 100"
          ></a-mixin>
       </a-assets>
 
+      <!-- Hand controls -->
+      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
+      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
+
+      <!-- Main assets -->
       <a-text value="Skull" color="#BBB" position="-0.25 1.3 -3" scale="0.8 0.8 0.8"></a-text>
       <a-text color="#BBB" position="-0.6 0.9 -3" scale="0.25 0.25 0.25" wrap-count="25"
         value="The skull is a bone structure that forms the head in vertebrates. It supports the structures of the face and provides a protective cavity for the brain."></a-text>
@@ -26,13 +36,17 @@
 
       <!-- Annotations -->
       <a-entity id="annotations" position="0 2 -3">
-        <a-entity id="annotation1" position="-0.8 0 0" mixin="annotation" class="raycastable menu-button">
+        <a-entity id="annotation1" position="-0.8 0 0" mixin="annotation" class="">
+          <a-entity id="annotation1-text" mixin="annotation-text" class="raycastable">
+            <a-text value="Blah" position="0 -0.15 0" color="#BBB" scale="0.5 0.5 0.5"></a-text>
+            <a-plane position="0.25 -0.15 0" rotation="0 0 0" width="0.5" height="0.2" color="#303030"></a-plane>
+          </a-entity>
         </a-entity>
 
-        <a-entity id="annotation2" position="0 0 0" mixin="annotation" class="raycastable menu-button">
+        <a-entity id="annotation2" position="0 0 0" mixin="annotation" class="">
         </a-entity>
 
-        <a-entity id="annotation3" position="0.8 0 0" mixin="annotation" class="raycastable menu-button">
+        <a-entity id="annotation3" position="0.8 0 0" mixin="annotation" class="">
         </a-entity>
       </a-entity>
 
