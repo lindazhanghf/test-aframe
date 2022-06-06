@@ -3,14 +3,18 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene inspector="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
       <a-assets>
         <a-asset-item id="skull-obj" src="assets/models/skull_no_teeth.obj"></a-asset-item>
       </a-assets>
 
-      <a-entity obj-model="obj: #skull-obj" position="0 2 -5" scale="2 2 2"></a-entity>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-text value="Skull" color="#BBB" position="-0.25 1.3 -3" scale="0.8 0.8 0.8"></a-text>
+      <a-text color="#BBB" position="-0.6 0.9 -3" scale="0.25 0.25 0.25" wrap-count="25"
+        value="The skull is a bone structure that forms the head in vertebrates. It supports the structures of the face and provides a protective cavity for the brain."></a-text>
+      <a-plane position="0 1 -3.01" rotation="0 0 0" width="1.5" height="1" color="#303030"></a-plane>
+
+      <a-entity obj-model="obj: #skull-obj" position="0 2 -3" scale="2 2 2"></a-entity>
+      <a-sky color="#666666"></a-sky>
     </a-scene>
   </body>
 </html>
